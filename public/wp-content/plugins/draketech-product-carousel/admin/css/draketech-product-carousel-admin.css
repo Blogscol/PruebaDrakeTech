@@ -1,0 +1,9 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+ .postbox .inside h2
+ {
+ 	padding: 0px !important;
+ }
