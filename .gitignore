@@ -21,3 +21,11 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+docker-compose.yml
+
+package-lock.json
+
+php.tar.gz
+
+public/wp-config-sample.php
