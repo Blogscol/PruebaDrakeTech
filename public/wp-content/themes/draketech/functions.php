@@ -511,18 +511,30 @@ function add_my_post_types_to_query( $query ) {
     return $query;
 }
 
+function excerpt($title, $cutOffLength)
+{
+		$title = strip_tags($title);
+    $charAtPosition = "";
+    $titleLength = strlen($title);
 
-	function excerpt($title, $cutOffLength)
-	{
-			$title = strip_tags($title);
-	    $charAtPosition = "";
-	    $titleLength = strlen($title);
+    do
+    {
+        $cutOffLength++;
+        $charAtPosition = substr($title, $cutOffLength, 1);
+    } while ($cutOffLength < $titleLength && $charAtPosition != " ");
 
-	    do
-	    {
-	        $cutOffLength++;
-	        $charAtPosition = substr($title, $cutOffLength, 1);
-	    } while ($cutOffLength < $titleLength && $charAtPosition != " ");
+    return substr($title, 0, $cutOffLength) . '...';
+}
 
-	    return substr($title, 0, $cutOffLength) . '...';
-	}
+function draketech_login_logo()
+{ 
+?> 
+	<style type="text/css"> 
+	body.login div#login h1 a {
+	background-image: url(<?php echo get_template_directory_uri() . '/assets/img/logo.png'; ?>); 
+	padding-bottom: 30px; 
+	} 
+	</style>
+<?php 
+}
+add_action( 'login_enqueue_scripts', 'draketech_login_logo' );
